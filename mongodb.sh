@@ -29,8 +29,11 @@ VALIDATE() {
 }
 
 # Copy MongoDB repository file
-cp mongo.repo/etc/yum.repos.d/mongo.repo &>>$LOGFILE
-VALIDATE $? "Copying MongoDB repository file"
+if cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE; then
+    VALIDATE 0 "Copying MongoDB repository file"
+else
+    VALIDATE 1 "Copying MongoDB repository file"
+fi
 
 # Install MongoDB
 yum install mongodb-org -y &>>$LOGFILE
