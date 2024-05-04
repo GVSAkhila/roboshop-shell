@@ -29,7 +29,7 @@ VALIDATE() {
 }
 
 # Copy MongoDB repository file
-cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
+cp mongo.repo/etc/yum.repos.d/mongo.repo &>>$LOGFILE
 VALIDATE $? "Copying MongoDB repository file"
 
 # Install MongoDB
