@@ -46,39 +46,39 @@ useradd roboshop &>>$LOGFILE
 
 mkdir /app &>>$LOGFILE
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>>$LOGFILE
+curl -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip &>>$LOGFILE
 
-VALIDATE $? "downloading catalogue aritifact"
+VALIDATE $? "downloading user aritifact"
 
 cd /app &>>$LOGFILE
 
 VALIDATE $? "moving into app directory"
 
-unzip /tmp/catalogue.zip &>>$LOGFILE
+unzip /tmp/user.zip &>>$LOGFILE
 
-VALIDATE $? "unziping  catalogue"
+VALIDATE $? "unziping  user"
 
 npm install &>>$LOGFILE
 
 VALIDATE $? "installing dependencies"
 
-cp /home/centos/roboshop.shell/catalogue.service  /etc/systemd/system/catalogue.service &>>$LOGFILE
+cp /home/centos/roboshop.shell/user.service  /etc/systemd/system/user.service &>>$LOGFILE
  
 
 
-VALIDATE $? "Copying catalogue service file"
+VALIDATE $? "Copying user service file"
 
 systemctl daemon-reload &>>$LOGFILE
 
 VALIDATE $? "daemon reloaded"
 
-systemctl enable catalogue &>>$LOGFILE
+systemctl enable user &>>$LOGFILE
 
-VALIDATE $? "enable catalogue"
+VALIDATE $? "enable user"
 
-systemctl start catalogue &>>$LOGFILE
+systemctl start user &>>$LOGFILE
 
-VALIDATE $? "started the catalogue"
+VALIDATE $? "started the user"
 
 cp /home/centos/roboshop.shell/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
 
@@ -88,6 +88,6 @@ yum install mongodb-org-shell -y &>>$LOGFILE
 
 VALIDATE $? "installing mango clint"
 
-mongo --host mongodb.joinsankardevops.online </app/schema/catalogue.js &>>$LOGFILE
+mongo --host mongodb.joinsankardevops.online </app/schema/user.js &>>$LOGFILE
 
-VALIDATE $? "loading catalogue data in mangodb"
+VALIDATE $? "loading user data in mangodb"
