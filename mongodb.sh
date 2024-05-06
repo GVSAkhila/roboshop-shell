@@ -50,6 +50,7 @@ VALIDATE $? "Starting MongoDB service"
 sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>$LOGFILE
 VALIDATE $? "Editing MongoDB configuration"
 
+
 # Restart MongoDB service
 systemctl restart mongod &>>$LOGFILE
 VALIDATE $? "Restarting MongoDB service"
