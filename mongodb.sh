@@ -5,13 +5,14 @@
 DATE=$(date +%F)
 LOGDIR=/tmp
 SCRIPT_NAME=$0
-LOGFILE==$LOGDIR/$0.log
+LOGFILE=$LOGDIR/$0-$DATE.log
+USERID=$(id -u)
 
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
 
-USERID=$(id -u)
+ 
 
 if [ $USERID -ne 0 ]; then
     echo "ERROR:: Please run this script with root access"
