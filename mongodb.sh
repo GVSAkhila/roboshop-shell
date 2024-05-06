@@ -5,7 +5,7 @@
 DATE=$(date +%F)
 LOGDIR=/tmp
 SCRIPT_NAME=$0
-LOGFILE="/tmp/$SCRIPT_NAME-$DATE.log"
+LOGFILE==$LOGDIR/$0.log
 
 R="\e[31m"
 G="\e[32m"
@@ -30,11 +30,9 @@ VALIDATE() {
 }
 
 # Copy MongoDB repository file
-if cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE; then
-    VALIDATE 0 "Copying MongoDB repository file"
-else
-    VALIDATE 1 "Copying MongoDB repository file"
-fi
+ cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE; then
+
+ VALIDATE $? "copied MongoDB"
 
 # Install MongoDB
 yum install mongodb-org -y &>>$LOGFILE
