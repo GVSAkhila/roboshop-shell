@@ -3,6 +3,7 @@
 # our program goal is to install mongodb
 
 DATE=$(date +%F)
+LOGDIR=/tmp
 SCRIPT_NAME=$0
 LOGFILE="/tmp/$SCRIPT_NAME-$DATE.log"
 
