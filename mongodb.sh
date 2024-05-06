@@ -30,7 +30,7 @@ VALIDATE() {
 }
 
 # Copy MongoDB repository file
- cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE; then
+ cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
 
  VALIDATE $? "copied MongoDB"
 
