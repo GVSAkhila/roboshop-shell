@@ -23,7 +23,7 @@ do
 
       echo "created $i instance: $IP_ADDRESS"
 
-      aws route53 change-resource-record-sets --hosted-zone-id ZZ05207513DMEHXL2N1MM2 --change-batch '
+      aws route53 change-resource-record-sets --hosted-zone-id Z05207513DMEHXL2N1MM2 --change-batch '
 {
             "Comment": "CREATE/DELETE/UPSERT a record ",
             "Changes": [{
